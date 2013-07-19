@@ -27,7 +27,7 @@ Template.map.rendered = function initialize () {
 	        mark.setMap(map);
 
 	    var pins = Pins.find();
-
+	    
 		pins.forEach(function(pin){
 		    var marker = new google.maps.Marker({
 		        position: new google.maps.LatLng (pin.lat, pin.lng),
@@ -43,4 +43,3 @@ Template.map.rendered = function initialize () {
 		console.log("Sorry, an error occured with geolocation.");
 	}
 }
-

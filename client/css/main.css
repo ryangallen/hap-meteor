@@ -44,7 +44,7 @@ header {
 	position:absolute;
 	width:100%;
 	height: 56px;
-	padding:.2em 6%;
+	padding:.2em 30px;
 	background:#FFCC00;
 	color:#484852;
 	border-bottom:1px solid #DDAA00;
@@ -61,6 +61,12 @@ header h1{
 	text-shadow: 0 2px 5px #C7980A;
 	float: left;
 	margin-right: 1em;
+}
+
+#add-pin{
+	position: absolute;
+	right: 380px;
+	top: 60px;
 }
 
 header .login-text-and-button{
