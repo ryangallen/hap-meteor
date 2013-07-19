@@ -3,8 +3,30 @@ html, body{
 	height: 100%;
 	margin: 0;
 	padding: 0;
-	font-family:lobster, 'Trebuchet MS', Arial, sans-serif;
+	font-family:Arial, sans-serif;
 	background:#444444;
+}
+
+a{
+	color: #eeeeee;
+	text-decoration:none;
+}
+
+a:hover{
+	color:#cccccc;
+}
+
+.btn{
+	border: 1px solid #111;
+	background: #46a;
+	padding: 0.3em .7em;
+	border-radius: 4px;
+	margin: 1em;
+}
+
+.btn:hover{
+	background: #666666;
+	color: #333333;
 }
 
 #page{
@@ -31,11 +53,14 @@ header {
 }
 
 header h1{
+	font-family: lobster, 'Trebuchet MS';
 	margin:0 0 4px;
 	color:#F8F8F8;
 	-moz-text-shadow: 0 2px 5px #C7980A;
 	-webkit-text-shadow: 0 2px 5px #C7980A;
 	text-shadow: 0 2px 5px #C7980A;
+	float: left;
+	margin-right: 1em;
 }
 
 header .login-text-and-button{
@@ -52,109 +77,21 @@ header .login-text-and-button{
 	margin: 0;
 }
 
-#intro{
-	margin: 0;
-	background:rgba(0, 0, 0, .8);
-	color:#FFF;
-	width:340px;
-	position:absolute;
-	right:0;
-	top:0;
-	min-height:600px;
-	height:100%;
-	font-family: Georgia, serif;
-	z-index:1;
-	padding:0 1em;
-}
-
-#intro p{
-	font-family: poiret-one, serif;
-	text-align:justify;
-	margin:120px .5em 30px;
-	font-size:1.3em;
-}
-
-#things{
-	width:85%;
-	margin:20px auto;
-}
-	
-#intro h2{
-	font-weight:100;
-	letter-spacing:2px;
-	font-size:1.2em;
-	font-style:italic;
-	margin:.2em 0;
-	}
-
-	
-#intro ul{
-	margin:.5em 0;
-	font-size:.98em;
-	line-height:1.2em;
-	font-family:Tahoma, Helvetica, Arial, sans-serif;
-}
-
-#intro li{
-	line-height:1.6em;
-	list-style-type:circle;
-	letter-spacing:1px;
-}
-
-#intro h1{
-	font-family: Lobster, serif;
-	font-size:2.3em;
-	letter-spacing:2px;
-	font-weight:100;
-	text-align:center;
-	margin:30px 1em;
-	color:#FFFEFD;
-}
-
-#signup{
-	text-align:center;
-	margin:20px 0;
-}
-
-#intro h3{
-	font-family: ubuntu-condensed, serif;
-	font-size:1.4em;
-	font-weight:100;
-	margin:.5em 0;
-}
-
-#intro a{
-	font-family:Tahoma, Helvetica, Arial, sans-serif;
-	color:#FFDB4A;
-	font-size:1.3em;
-	text-decoration:none;
-	font-weight:300;
-	letter-spacing:1px;
-	border-bottom: 1px solid #FFDB4A;
-	text-shadow: 0 0 1px #E8E0D8;
-	padding:.2em;
-}
-
-#intro a:hover{
-	color:#FFCC00;
-	border-bottom: 1px solid #FFCC00;
-}
-
 #queue{
 	z-index: 5;
 	position: absolute;
 	right: 0;
 	top: 0;
-	border-left: 1px solid rgba(0,0,0,.9);
+	border-left: 1px solid rgba(100,100,100,.9);
 	overflow-y:scroll;
 	height:100%;
 }
 .pin{
 	width: 300px;
-	border-bottom: 1px solid rgba(0,0,0,.9);
+	border-bottom: 1px solid rgba(100,100,100,.9);
 	background: rgba(0,0,0,.8);
 	margin: 0;
-	padding: 10px;
+	padding: 12px;
 	font-family: 'Open-sans', Arial, Helvetica, sans-serif; 
 }
 
@@ -162,44 +99,18 @@ header .login-text-and-button{
 	border-bottom: none;
 }
 
-#page-fill{
-	height:100%;
-	width:100%;
-	position:absolute;
-	z-index:3;
-	font-family: Tahoma, Helvetica, Arial, sans-serif;
-	font-size:1.4em;
+.pin>.pin-title{
+	margin: 0;
+}
+.pin>h4{margin: 5px 0 0}
+.pin>.pin-date{background: blue}
+.pin>.pin-link{margin:5px 0 7px;}
+.pin>.pin-link>a{color:#4488CC;}
+.pin>.pin-link>a:hover{color:#3366bb;}
+.pin>.pin-description{
+	margin: 0;
 }
 
-#thanks-pop{
-	width:350px;
-	margin:20% auto;
-	background:#FFD009;
-	border:2px solid #777;
-	box-shadow:0 0 0 1px #333;
-	padding:0 20px;
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	border-radius: 10px;
-	color:#444;
-}
 
-#thanks-pop p{
-	-moz-text-shadow: 0 1px 3px #E7B83A;
-	-webkit-text-shadow: 0 1px 3px #E7B83A;
-	text-shadow: 0 1px 3px #E7B83A;
-}
 
-#thanks-pop a{
-	color:#F8F8F8;
-	-moz-text-shadow: 0 1px 3px #D7B83A;
-	-webkit-text-shadow: 0 1px 3px #D7B83A;
-	text-shadow: 0 2px 5px #D7B83A;
-}
 
-#thanks-pop a:hover{
-	color:#FFF;
-	-moz-text-shadow: 0 1px 3px #CCA814;
-	-webkit-text-shadow: 0 1px 3px #CCA814;
-	text-shadow: 0 2px 5px #CCA814;
-}

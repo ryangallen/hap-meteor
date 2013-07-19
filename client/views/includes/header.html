@@ -1,6 +1,10 @@
 <template name="header">
 	<header>
-		<h1>happining</h1>
+		<h1><a href="{{mapPath}}">happining</a></h1>
+		{{#if currentUser}}
+			<a href="{{pinAddPath}}" class="btn">Add Pin</a>
+		{{else}}
+		{{/if}}
 		{{ loginButtons }}
 	</header>
 </template>

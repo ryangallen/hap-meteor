@@ -1,0 +1,8 @@
+<template name="map">
+	<div id="map_canvas"></div>
+		{{#if currentUser}}
+			{{> pinsList }}
+		{{else}}
+			{{> intro }}
+		{{/if}}
+</template>

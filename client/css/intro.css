@@ -1,0 +1,87 @@
+#intro{
+	margin: 0;
+	background:rgba(0, 0, 0, .8);
+	color:#FFF;
+	width:340px;
+	position:absolute;
+	right:0;
+	top:0;
+	min-height:600px;
+	height:100%;
+	font-family: Georgia, serif;
+	z-index:1;
+	padding:0 1em;
+}
+
+#intro p{
+	font-family: poiret-one, serif;
+	text-align:justify;
+	margin:120px .5em 30px;
+	font-size:1.3em;
+}
+
+#things{
+	width:85%;
+	margin:20px auto;
+}
+	
+#intro h2{
+	font-weight:100;
+	letter-spacing:2px;
+	font-size:1.2em;
+	font-style:italic;
+	margin:.2em 0;
+	}
+
+	
+#intro ul{
+	margin:.5em 0;
+	font-size:.98em;
+	line-height:1.2em;
+	font-family:Tahoma, Helvetica, Arial, sans-serif;
+}
+
+#intro li{
+	line-height:1.6em;
+	list-style-type:circle;
+	letter-spacing:1px;
+}
+
+#intro h1{
+	font-family: Lobster, serif;
+	font-size:2.3em;
+	letter-spacing:2px;
+	font-weight:100;
+	text-align:center;
+	margin:30px 1em;
+	color:#FFFEFD;
+}
+
+#signup{
+	text-align:center;
+	margin:20px 0;
+}
+
+#intro h3{
+	font-family: ubuntu-condensed, serif;
+	font-size:1.4em;
+	font-weight:100;
+	margin:.5em 0;
+}
+
+#intro a{
+	font-family:Tahoma, Helvetica, Arial, sans-serif;
+	color:#FFDB4A;
+	font-size:1.3em;
+	text-decoration:none;
+	font-weight:300;
+	letter-spacing:1px;
+	border-bottom: 1px solid #FFDB4A;
+	text-shadow: 0 0 1px #E8E0D8;
+	padding:.2em;
+}
+
+#intro a:hover{
+	color:#FFCC00;
+	border-bottom: 1px solid #FFCC00;
+}
