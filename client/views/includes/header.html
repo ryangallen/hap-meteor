@@ -1,6 +1,10 @@
 <template name="header">
 	<header>
 		<h1><a href="{{mapPath}}">happining</a></h1>
+		<form action="">
+			<input type="search" id="address" results="4">
+			<input type="button" value="Go" id="geocode" class="btn green">
+		</form>
 		{{#if currentUser}}
 			<a href="{{pinAddPath}}" class="btn" id="add-pin">Add Pin</a>
 		{{else}}
