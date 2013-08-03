@@ -47,6 +47,7 @@ a{
 	position:absolute;
 	top:65px;
 	color:#FFF;
+	overflow: hidden;
 }
 
 header {
@@ -104,38 +105,49 @@ input[type="search"]{border-radius: 50px;padding:0;vertical-align: baseline;}
 
 #map_canvas {
 	position:absolute;
-	width:100%;
+	left: -338px;
+	width: calc(100% + 338px);
+	width: -moz-calc(100% + 338px);
+	width: -webkit-calc(100% + 338px);
+	width: -o-calc(100% + 338px);
 	min-height:600px;
 	height:100%;
 	margin: 0;
+	color: #222222;
 }
 
 #queue{
 	position: absolute;
 	right: 0;
 	top: 0;
-	border-left: 1px solid rgba(100,100,100,.9);
+	border-left: 1px solid rgba(0,0,0,.95);
 	overflow-y:scroll;
 	height:100%;
 }
 
 .pin{
 	width: 338px;
-	border-bottom: 1px solid rgba(100,100,100,.9);
+	border-bottom: 1px solid rgba(0,0,0,.6);
 	background: rgba(0,0,0,.8);
 	margin: 0;
 	padding: 12px;
 	font-family: 'Open-sans', Arial, Helvetica, sans-serif; 
 }
 
+.pin:hover{
+	cursor: pointer;
+	background: rgba(0,0,0,.9);
+}
+
 .pin:last-child{border-bottom: none;}
-.pin>.pin-title{margin: 0;}
-.pin>h4{margin: 5px 0 0}
-.pin>.pin-date{background: blue}
-.pin>.pin-link{margin:5px 0 7px;}
-.pin>.pin-link>a{color:#4488CC;}
-.pin>.pin-link>a:hover{color:#3366bb;}
-.pin>.pin-description{margin: 0;white-space: pre-wrap;}
+.pin>.pin-title,.pinInfoWindow>.pin-title{margin: 0;}
+.pin>h4,.pinInfoWindow>h4{margin: 5px 0 0}
+.pin>.pin-link,.pinInfoWindow>.pin-link{margin:5px 0 7px;}
+.pinInfoWindow>.pin-link{text-align: right;}
+.pin>.pin-link>a,.pinInfoWindow>.pin-link>a{color:#4488CC;}
+.pin>.pin-link>a:hover,.pinInfoWindow>.pin-link>a:hover{color:#3366bb;}
+.pin>.pin-description,.pinInfoWindow>.pin-description{margin: 0;white-space: pre-wrap;}
+.pinInfoWindow>.pin-description{margin: 5px 0 0;}
 
 #add-pin-form, .show-pin>.pin{
 	width: 400px;

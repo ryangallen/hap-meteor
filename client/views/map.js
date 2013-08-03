@@ -17,6 +17,8 @@ Template.map.rendered = function initialize () {
 		};
 
 		map = new google.maps.Map(document.getElementById('map_canvas'), options);
+		infowindow = new google.maps.InfoWindow({maxWidth: 350});
+
 		$('#searchMap').fadeIn();
 	    var pins = Pins.find();
 		pins.forEach(function(pin){
@@ -24,10 +26,22 @@ Template.map.rendered = function initialize () {
 		        position: new google.maps.LatLng (pin.lat, pin.lng),
 		        map: map,
 		        icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
-		        title: pin.title,
+		        pin: pin
 		    });
+		    google.maps.event.addListener(marker, 'click', showPinInfo);
 		    marker.setMap(map);
 		});
+	}
+
+	function showPinInfo() {
+		pinInfo = '<div class="pinInfoWindow">
+			<h3 class="pin-title">'+this.pin.title+'</h3>
+			<h4><span class="pin-date">'+this.pin.date+'</span> <span class="pin-time">'+this.pin.time+'</span></h4>
+			<h4><span class="pin-location">'+this.pin.location+'</span></h4>
+			<p class="pin-description">'+this.pin.description+'</p>
+			<p class="pin-link"><a href="'+this.pin.url+'" target="_blank">more info...</a></p></div>';
+        infowindow.setContent(pinInfo);
+        infowindow.open(map, this);
 	}
 
 	function error(error){
@@ -49,5 +63,9 @@ Template.map.rendered = function initialize () {
 
 Template.map.events = {
 	'click #geocode' : function(){codeAddress();},
-	'keypress #address' : function(e){if (e.keyCode == 13) {codeAddress();}}
+	'keypress #address' : function(e){if (e.keyCode == 13) {codeAddress();}},
+	'click .pin' : function(){
+		infowindow.close();
+		map.setCenter(new google.maps.LatLng(this.lat,this.lng));
+	}
 }
