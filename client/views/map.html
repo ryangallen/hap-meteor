@@ -1,8 +1,15 @@
 <template name="map">
 	<div id="map_canvas"></div>
+	{{#if currentUser}}
+		{{> pinsList }}
+	{{else}}
+		{{> intro }}
+	{{/if}}
+	<div id="searchMap">
+		<input type="search" id="address" results="4" placeholder="New Location" onkeypress="{{ runScript }}">
+		<input type="submit" value="Go" id="geocode" class="btn green">
 		{{#if currentUser}}
-			{{> pinsList }}
-		{{else}}
-			{{> intro }}
+			<a href="{{pinAddPath}}" class="btn blue" id="add-pin">Add Pin</a>
 		{{/if}}
+	</div>
 </template>

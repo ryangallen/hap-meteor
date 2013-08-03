@@ -8,7 +8,7 @@ html, body{
 	margin: 0;
 	padding: 0;
 	font-family:Arial, sans-serif;
-	background:#444444;
+	background:#2b2a2d;
 }
 
 a{
@@ -18,25 +18,25 @@ a{
 
 .btn, #login-buttons a.login-link-text{
 	border: 1px solid rgba(0,0,0,.25);
-	margin: 1em;
-	background: #48c;
+	margin: .7em;
+	background:#ffdb4a;
 	padding: 4px 10px 3px;
 	color: #ffffff;
-	text-shadow: 0 -1px 1px rgba(0,0,0,.2);
+	text-shadow: 0 -1px 1px rgba(0,0,0,.25);
 	font-size: 16px;
 }
 
 .btn:hover, #login-buttons a.login-link-text:hover{
-	background: #37b;
+	background:#fad346;
 	cursor: pointer;
 }
 
 .red{background:#c44}
 .green{background:#4a6}
-.yellow{background:#fc0}
+.blue{background: #48c}
 .red:hover{background:#b33}
 .green:hover{background:#395}
-.yellow:hover{background:#f5c500}
+.blue:hover{background: #37b}
 
 #page{
 	width:100%;
@@ -58,15 +58,12 @@ header {
 	color:#484852;
 	border-bottom:1px solid #DDAA00;
 	font-size:1.2em;
-	z-index:2;
 }
 
 header h1{
 	font-family: lobster, 'Trebuchet MS';
 	margin:0 0 4px;
 	color:#F8F8F8;
-	-moz-text-shadow: 0 2px 5px #C7980A;
-	-webkit-text-shadow: 0 2px 5px #C7980A;
 	text-shadow: 0 2px 5px #C7980A;
 	float: left;
 	margin-right: 1em;
@@ -75,7 +72,7 @@ header h1{
 #login-buttons{
 	position: absolute;
 	right: 30px;
-	top: 22px;	
+	top: 22px;
 }
 
 #login-buttons a.login-link-text, #login-buttons a.login-close-text{
@@ -87,15 +84,23 @@ header h1{
 }
 
 #login-dropdown-list{
-	left: -120px;
+	right: 20px;
+	top: 2px;
+	left: auto;
 	box-sizing: content-box;
+	box-shadow:0 0 0 10000px rgba(30,30,30,.3);
 }
 
-#add-pin{
+#searchMap{
 	position: absolute;
-	right: 344px;
-	top: 60px;
+	right: 339px;
+	background: rgba(250,245,235,.4);
+	box-shadow: -15px 0 20px rgba(250,245,235,.5);
+	padding: 0 .6em .1em;
+	display: none;
 }
+#searchMap .btn{margin: .5em 0 .5em .5em;}
+input[type="search"]{border-radius: 50px;padding:0;vertical-align: baseline;}
 
 #map_canvas {
 	position:absolute;
@@ -106,7 +111,6 @@ header h1{
 }
 
 #queue{
-	z-index: 5;
 	position: absolute;
 	right: 0;
 	top: 0;
@@ -116,7 +120,7 @@ header h1{
 }
 
 .pin{
-	width: 350px;
+	width: 338px;
 	border-bottom: 1px solid rgba(100,100,100,.9);
 	background: rgba(0,0,0,.8);
 	margin: 0;
@@ -124,22 +128,31 @@ header h1{
 	font-family: 'Open-sans', Arial, Helvetica, sans-serif; 
 }
 
-.pin:last-child{
-	border-bottom: none;
-}
-
-.pin>.pin-title{
-	margin: 0;
-}
+.pin:last-child{border-bottom: none;}
+.pin>.pin-title{margin: 0;}
 .pin>h4{margin: 5px 0 0}
 .pin>.pin-date{background: blue}
 .pin>.pin-link{margin:5px 0 7px;}
 .pin>.pin-link>a{color:#4488CC;}
 .pin>.pin-link>a:hover{color:#3366bb;}
-.pin>.pin-description{
-	margin: 0;
+.pin>.pin-description{margin: 0;white-space: pre-wrap;}
+
+#add-pin-form, .show-pin>.pin{
+	width: 400px;
+	margin: 0 auto;
+	background: #f9f9f9;
+	padding: 12px 16px;
+	margin-top: 1em;
+	color: #494949;
+	border: 1px solid rgba(0,0,0,.8);
 }
 
+input{line-height: normal;}
+label{font-size: 1.2em;font-weight: 600;margin-top: 5px;}
+input[type="text"],input[type="url"],textarea{width: 100%;}
+input[type="date"],input[type="time"]{width: 50%;float: left;}
+textarea{height: 100px;}
+form>.btn{float: right;margin-right: 0}
 
-
-
+.show-pin h2{text-align: center;margin:1em 0 0;font-size: 2em;}
+#back-to-map{margin: 1em auto;display: block;width: 120px;text-align: center;}

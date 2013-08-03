@@ -18,6 +18,7 @@
 	text-align:justify;
 	margin:120px 18px 30px;
 	font-size:1.3em;
+	font-weight: 600;
 }
 
 #things{
@@ -46,6 +47,7 @@
 	line-height:1.6em;
 	list-style-type:circle;
 	letter-spacing:1px;
+	margin-left: -.5em;
 }
 
 #intro h1{
@@ -55,8 +57,7 @@
 	font-weight:100;
 	text-align:center;
 	margin:30px 1em;
-	color:#FFFEFD;
-	color:#FFCC18;
+	color:#ffcf56;
 }
 
 #signup{

@@ -1,6 +1,9 @@
 <template name="pinPage">
-  {{#with currentPin}}
-    {{> pinItem}}
-  {{/with}}
-  <a href="/">Back to Map</a>
+  <div class="show-pin">
+	<h2>Pinned!</h2>
+  	{{#with currentPin}}
+    	{{> pinItem}}
+  	{{/with}}
+  <a href="/" class="btn yellow" id="back-to-map">Back to Map</a>
+  </div>
 </template>
