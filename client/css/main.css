@@ -1,4 +1,6 @@
 *{
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
 	box-sizing:border-box;
 }
 
@@ -7,7 +9,7 @@ html, body{
 	height: 100%;
 	margin: 0;
 	padding: 0;
-	font-family:Arial, sans-serif;
+	font-family:'Open Sans', Arial, sans-serif;
 	background:#2b2a2d;
 }
 
@@ -16,13 +18,15 @@ a{
 	text-decoration:none;
 }
 
+.ilb{display: inline-block;}
+
 .btn, #login-buttons a.login-link-text{
 	border: 1px solid rgba(0,0,0,.25);
 	margin: .7em;
 	background:#ffdb4a;
 	padding: 4px 10px 3px;
 	color: #ffffff;
-	text-shadow: 0 -1px 1px rgba(0,0,0,.25);
+	text-shadow: 0 0 3px rgba(20,15,0,.4);
 	font-size: 16px;
 }
 
@@ -40,14 +44,14 @@ a{
 
 #page{
 	width:100%;
-	height:calc(100% - 65px);
 	height:-webkit-calc(100% - 65px);
 	height:-moz-calc(100% - 65px);
 	height:-o-calc(100% - 65px);
+	height:calc(100% - 65px);
 	position:absolute;
 	top:65px;
 	color:#FFF;
-	overflow: hidden;
+	overflow-x: hidden;
 }
 
 header {
@@ -88,29 +92,29 @@ header h1{
 	right: 20px;
 	top: 2px;
 	left: auto;
+	-moz-box-sizing: content-box;
+	-webkit-box-sizing: content-box;
 	box-sizing: content-box;
 	box-shadow:0 0 0 10000px rgba(30,30,30,.3);
 }
 
 #searchMap{
 	position: absolute;
-	right: 339px;
-	background: rgba(250,245,235,.4);
-	box-shadow: -15px 0 20px rgba(250,245,235,.5);
-	padding: 0 .6em .1em;
+	right: 338px;
+	padding: 0 .7em .1em;
 	display: none;
 }
+
 #searchMap .btn{margin: .5em 0 .5em .5em;}
 input[type="search"]{border-radius: 50px;padding:0;vertical-align: baseline;}
 
 #map_canvas {
 	position:absolute;
 	left: -338px;
-	width: calc(100% + 338px);
 	width: -moz-calc(100% + 338px);
 	width: -webkit-calc(100% + 338px);
 	width: -o-calc(100% + 338px);
-	min-height:600px;
+	width: calc(100% + 338px);
 	height:100%;
 	margin: 0;
 	color: #222222;
@@ -123,30 +127,60 @@ input[type="search"]{border-radius: 50px;padding:0;vertical-align: baseline;}
 	border-left: 1px solid rgba(0,0,0,.95);
 	overflow-y:scroll;
 	height:100%;
+	background: rgba(0,0,0,.2);
+	width: 338px;
 }
 
 .pin{
-	width: 338px;
-	border-bottom: 1px solid rgba(0,0,0,.6);
-	background: rgba(0,0,0,.8);
+	width: 100%;
+	border-bottom: 1px solid rgba(100,100,100,.6);
+	background: rgba(0,0,0,.75);
 	margin: 0;
 	padding: 12px;
 	font-family: 'Open-sans', Arial, Helvetica, sans-serif; 
 }
-
 .pin:hover{
 	cursor: pointer;
-	background: rgba(0,0,0,.9);
+	background: rgba(0,0,0,.82);
+}
+.pin:last-child{border-bottom: none;}
+
+.pin.open{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	background: #222;
+}
+.pin.open:hover{
+	background: #222;
+	cursor: auto;
 }
 
-.pin:last-child{border-bottom: none;}
+.pin .close{
+	display:none;
+	float: right;
+	cursor: pointer;
+	color: #aaaaaa;
+	font-size: 1.6em;
+	position: relative;
+	top: -5px;
+}.pin .close:hover{
+	color: #eeeeee;
+}
+
+
+
+.pin>.pin-title{white-space: nowrap;text-overflow:ellipsis;overflow:hidden;}
 .pin>.pin-title,.pinInfoWindow>.pin-title{margin: 0;}
-.pin>h4,.pinInfoWindow>h4{margin: 5px 0 0}
+.pin>h4,.pinInfoWindow>h4{margin: 5px 0 0;font-weight: 500;}
+.pin>.pin-datetime{}
 .pin>.pin-link,.pinInfoWindow>.pin-link{margin:5px 0 7px;}
 .pinInfoWindow>.pin-link{text-align: right;}
-.pin>.pin-link>a,.pinInfoWindow>.pin-link>a{color:#4488CC;}
+.pin .pin-location,.pinInfoWindow>.pin-location{color:#aaaaaf;;}
+.pin>.pin-link>a,.pinInfoWindow .pin-link>a{color:#4488CC;}
 .pin>.pin-link>a:hover,.pinInfoWindow>.pin-link>a:hover{color:#3366bb;}
 .pin>.pin-description,.pinInfoWindow>.pin-description{margin: 0;white-space: pre-wrap;}
+.pin>.pin-description{display:none;}
 .pinInfoWindow>.pin-description{margin: 5px 0 0;}
 
 #add-pin-form, .show-pin>.pin{
@@ -168,3 +202,88 @@ form>.btn{float: right;margin-right: 0}
 
 .show-pin h2{text-align: center;margin:1em 0 0;font-size: 2em;}
 #back-to-map{margin: 1em auto;display: block;width: 120px;text-align: center;}
+
+@media (max-width:960px) {
+	header {
+		height: 50px;
+		padding:0 10px;
+		font-size:1.1em;
+	}
+	header #login-buttons{
+		top: 16px;
+		right: 0;
+	}
+	#page{
+		height:-webkit-calc(100% - 50px);
+		height:-moz-calc(100% - 50px);
+		height:-o-calc(100% - 50px);
+		height:calc(100% - 50px);
+		top:50px;
+	}
+	#queue{
+		font-size: 90%;
+		width: 280px;
+	}
+	#intro p{
+		padding:50px 18px 10px;
+	}
+	#searchMap{
+		right: 280px;
+	}
+	#searchMap input[type="search"]{
+		width: 160px;
+	}
+	#map_canvas {
+		left: -280px;
+		width: -moz-calc(100% + 280px);
+		width: -webkit-calc(100% + 280px);
+		width: -o-calc(100% + 280px);
+		width: calc(100% + 280px);
+	}
+}
+
+@media (max-width:530px) {
+	#queue{
+		right: 0;
+		left: 0;
+		top: auto;
+		bottom: 0;
+		height: 160px;
+		border-top: 1px solid rgba(0,0,0,.95);
+		box-shadow: -1px 0 3px rgba(0,0,0,.5);
+		width: 100%;
+	}
+	#intro{height: auto;}
+	#intro p{
+		padding:40px 18px 20px;
+	}
+	#things{
+		font-size: 110%;
+		max-width: 300px;
+	}
+	#map_canvas {
+		top: -150px;
+		right: 0;
+		left: 0;
+		width: 100%;
+		height: -moz-calc(100% + 150px);
+		height: -webkit-calc(100% + 150px);
+		height: -o-calc(100% + 150px);
+		height: calc(100% + 150px);
+	}
+	#searchMap{
+		right: 0;
+		left: 0;
+	}
+	#add-pin{
+		float:right;
+	}
+	.pinInfoWindow{
+		max-width: 280px;
+		max-height: 250px;
+	}
+	#add-pin-form, .show-pin>.pin{
+		max-width: 350px;
+		padding: 10px 14px;
+	}
+}

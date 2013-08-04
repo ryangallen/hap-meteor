@@ -1,28 +1,22 @@
 #intro{
-	margin: 0;
-	background:rgba(0, 0, 0, .8);
-	color:#FFF;
-	width:338px;
-	position:absolute;
-	right:0;
-	top:0;
-	min-height:600px;
-	height:100%;
 	font-family: Georgia, serif;
-	z-index:1;
 	padding:0 1em;
+	background: rgba(0,0,0,.6);
+	height: 100%;
 }
 
 #intro p{
 	font-family: poiret-one, serif;
 	text-align:justify;
-	margin:120px 18px 30px;
+	padding:120px 18px 30px;
+	margin:0;
 	font-size:1.3em;
 	font-weight: 600;
 }
 
 #things{
 	width:85%;
+	max-width: 250px;
 	margin:18px auto;
 }
 	
@@ -56,35 +50,7 @@
 	letter-spacing:2px;
 	font-weight:100;
 	text-align:center;
-	margin:30px 1em;
+	padding:10px 1em 40px;
+	margin:0;
 	color:#ffcf56;
-}
-
-#signup{
-	text-align:center;
-	margin:20px 0;
-}
-
-#intro h3{
-	font-family: ubuntu-condensed, serif;
-	font-size:1.4em;
-	font-weight:100;
-	margin:.5em 0;
-}
-
-#intro a{
-	font-family:Tahoma, Helvetica, Arial, sans-serif;
-	color:#FFDB4A;
-	font-size:1.3em;
-	text-decoration:none;
-	font-weight:300;
-	letter-spacing:1px;
-	border-bottom: 1px solid #FFDB4A;
-	text-shadow: 0 0 1px #E8E0D8;
-	padding:.2em;
-}
-
-#intro a:hover{
-	color:#FFCC00;
-	border-bottom: 1px solid #FFCC00;
 }
