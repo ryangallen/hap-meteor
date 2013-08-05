@@ -43,7 +43,21 @@ Template.map.rendered = function initialize () {
 		// 	<p class="pin-link"><a href="'+this.pin.url+'" target="_blank">more info...</a></p></div>';
   //       infowindow.setContent(pinInfo);
   //       infowindow.open(map, this);
+
+  		// window.location.href = '/pin/'+this.pin._id;
+
 		map.setCenter(this.position);
+		$('.pin-description').hide();
+		$('.close').hide();
+		$('.pin').removeClass('open');
+		pin = $('#'+this.pin._id);
+		pin.addClass('open').find('.close').show();
+		pin.find('.pin-description').show();
+		if ($(window).width() <= 580) {
+			var queue = $('#queue').animate({height: pin.height()+25}, 350, function(){
+				queue.css('overflow-y', 'auto').scrollTo(pin,350);
+			});
+		}
 	}
 
 	function error(error){
@@ -72,11 +86,37 @@ Template.map.events = {
 		if ($(e.target).attr("class")=='close'){
 			pin.removeClass('open').find('.close').hide();
 			pin.find('.pin-description').hide();
+			if ($(window).width() < 580) {
+			   $('#queue').animate({height: "40%"}, 500).css('overflow-y', 'auto');
+			}
 		}
 		else{
+			$('.pin-description').hide();
+			$('.close').hide();
+			$('.pin').removeClass('open');
 			map.setCenter(new google.maps.LatLng(this.lat,this.lng));
 			pin.addClass('open').find('.close').show();
 			pin.find('.pin-description').show();
+			if ($(window).width() <= 580) {
+				var queue = $('#queue').animate({height: pin.height()+25}, 350, function(){
+					queue.css('overflow-y', 'auto').scrollTo(pin,350);
+				});
+			}
 		}
 	}
 }
+
+$(window).resize(function() {
+    delay(function(){
+		if ($(window).width() > 580) {
+			$('#queue').removeAttr("style");
+		}
+		else{
+			var open = $('.open');
+			if(open.length > 0){
+				var queue = $('#queue').height(open.height()+25);
+				queue.css('overflow-y', 'auto').scrollTo(open);
+			}
+		}
+    }, 100);
+});

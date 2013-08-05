@@ -18,7 +18,7 @@ a{
 	text-decoration:none;
 }
 
-.ilb{display: inline-block;}
+.ilb, .btn{display: inline-block;}
 
 .btn, #login-buttons a.login-link-text{
 	border: 1px solid rgba(0,0,0,.25);
@@ -124,6 +124,7 @@ input[type="search"]{border-radius: 50px;padding:0;vertical-align: baseline;}
 	position: absolute;
 	right: 0;
 	top: 0;
+	bottom: 0;
 	border-left: 1px solid rgba(0,0,0,.95);
 	overflow-y:scroll;
 	height:100%;
@@ -134,14 +135,14 @@ input[type="search"]{border-radius: 50px;padding:0;vertical-align: baseline;}
 .pin{
 	width: 100%;
 	border-bottom: 1px solid rgba(100,100,100,.6);
-	background: rgba(0,0,0,.75);
+	background: rgba(0,0,0,.77);
 	margin: 0;
 	padding: 12px;
 	font-family: 'Open-sans', Arial, Helvetica, sans-serif; 
 }
 .pin:hover{
 	cursor: pointer;
-	background: rgba(0,0,0,.82);
+	background: rgba(0,0,0,.79);
 }
 .pin:last-child{border-bottom: none;}
 
@@ -149,10 +150,11 @@ input[type="search"]{border-radius: 50px;padding:0;vertical-align: baseline;}
 	position: absolute;
 	top: 0;
 	bottom: 0;
-	background: #222;
+	background: #111;
+	overflow-y: scroll; 
 }
 .pin.open:hover{
-	background: #222;
+	background: #111;
 	cursor: auto;
 }
 
@@ -168,8 +170,6 @@ input[type="search"]{border-radius: 50px;padding:0;vertical-align: baseline;}
 	color: #eeeeee;
 }
 
-
-
 .pin>.pin-title{white-space: nowrap;text-overflow:ellipsis;overflow:hidden;}
 .pin>.pin-title,.pinInfoWindow>.pin-title{margin: 0;}
 .pin>h4,.pinInfoWindow>h4{margin: 5px 0 0;font-weight: 500;}
@@ -180,7 +180,7 @@ input[type="search"]{border-radius: 50px;padding:0;vertical-align: baseline;}
 .pin>.pin-link>a,.pinInfoWindow .pin-link>a{color:#4488CC;}
 .pin>.pin-link>a:hover,.pinInfoWindow>.pin-link>a:hover{color:#3366bb;}
 .pin>.pin-description,.pinInfoWindow>.pin-description{margin: 0;white-space: pre-wrap;}
-.pin>.pin-description{display:none;}
+#queue>.pin>.pin-description{display:none;}
 .pinInfoWindow>.pin-description{margin: 5px 0 0;}
 
 #add-pin-form, .show-pin>.pin{
@@ -200,7 +200,7 @@ input[type="date"],input[type="time"]{width: 50%;float: left;}
 textarea{height: 100px;}
 form>.btn{float: right;margin-right: 0}
 
-.show-pin h2{text-align: center;margin:1em 0 0;font-size: 2em;}
+/*.show-pin h2{text-align: center;margin:1em 0 0;font-size: 2em;}*/
 #back-to-map{margin: 1em auto;display: block;width: 120px;text-align: center;}
 
 @media (max-width:960px) {
@@ -229,9 +229,13 @@ form>.btn{float: right;margin-right: 0}
 	}
 	#searchMap{
 		right: 280px;
+		left: 0;
 	}
 	#searchMap input[type="search"]{
-		width: 160px;
+		width: 130px;
+	}
+	#add-pin{
+		float:right;
 	}
 	#map_canvas {
 		left: -280px;
@@ -242,16 +246,19 @@ form>.btn{float: right;margin-right: 0}
 	}
 }
 
-@media (max-width:530px) {
+@media (max-width:580px) {
 	#queue{
 		right: 0;
 		left: 0;
 		top: auto;
 		bottom: 0;
-		height: 160px;
+		height: 40%;
 		border-top: 1px solid rgba(0,0,0,.95);
 		box-shadow: -1px 0 3px rgba(0,0,0,.5);
 		width: 100%;
+	}
+	#queue.tall{
+		/*height: 60%;*/
 	}
 	#intro{height: auto;}
 	#intro p{
@@ -262,21 +269,21 @@ form>.btn{float: right;margin-right: 0}
 		max-width: 300px;
 	}
 	#map_canvas {
-		top: -150px;
+		top: -30%;
 		right: 0;
 		left: 0;
 		width: 100%;
-		height: -moz-calc(100% + 150px);
+		height: 130%;
+/*		height: -moz-calc(100% + 150px);
 		height: -webkit-calc(100% + 150px);
 		height: -o-calc(100% + 150px);
-		height: calc(100% + 150px);
+		height: calc(100% + 150px);*/
 	}
 	#searchMap{
 		right: 0;
-		left: 0;
 	}
-	#add-pin{
-		float:right;
+	#searchMap input[type="search"]{
+		width: 140px;
 	}
 	.pinInfoWindow{
 		max-width: 280px;
@@ -285,5 +292,9 @@ form>.btn{float: right;margin-right: 0}
 	#add-pin-form, .show-pin>.pin{
 		max-width: 350px;
 		padding: 10px 14px;
+	}
+	.pin.open{
+		position: static;
+		overflow-y: visisble; 
 	}
 }
