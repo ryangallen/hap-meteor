@@ -23,10 +23,15 @@ Template.map.rendered = function initialize () {
 	    var pins = Pins.find();
 		pins.forEach(function(pin){
 		    var marker = new google.maps.Marker({
+		    	id: pin._id,
+		    	title: pin.title,
 		        position: new google.maps.LatLng (pin.lat, pin.lng),
 		        map: map,
 		        icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
-		        pin: pin
+		        date: pin.date,
+		        time: pin.time,
+		        location: pin.location,
+
 		    });
 		    google.maps.event.addListener(marker, 'click', showPinInfo);
 		    marker.setMap(map);
@@ -34,23 +39,23 @@ Template.map.rendered = function initialize () {
 	}
 
 	function showPinInfo() {
-		// pinInfo='pinInfo';
-		// pinInfo = '<div class="pinInfoWindow">
-		// 	<h3 class="pin-title">'+this.pin.title+'</h3>
-		// 	<h4><span class="pin-date">'+this.pin.date+'</span> <span class="pin-time">'+this.pin.time+'</span></h4>
-		// 	<h4><span class="pin-location">'+this.pin.location+'</span></h4>
-		// 	<p class="pin-description">'+this.pin.description+'</p>
-		// 	<p class="pin-link"><a href="'+this.pin.url+'" target="_blank">more info...</a></p></div>';
-  //       infowindow.setContent(pinInfo);
-  //       infowindow.open(map, this);
-
-  		// window.location.href = '/pin/'+this.pin._id;
-
 		map.setCenter(this.position);
+
+		pinInfo=this.title;
+		pinInfo = '<div class="pinInfoWindow"><h3 class="pin-title">'+this.title+
+			'</h3><h4><span class="pin-date">'+this.date+
+			'</span> <span class="pin-time">'+this.time+
+			'</span></h4><h4><span class="pin-location">'+this.location+
+			'</span> <span class="directions"><a href="https://maps.google.com/?daddr='+this.location.replace(/\s+/g, '+')+
+			'&zoom=10" target="_blank">Get Directions</a></span></h4>'
+
+		infowindow.setContent(pinInfo);
+		infowindow.open(map, this);
+
 		$('.pin-description').hide();
 		$('.close').hide();
 		$('.pin').removeClass('open');
-		pin = $('#'+this.pin._id);
+		pin = $('#'+this._id);
 		pin.addClass('open').find('.close').show();
 		pin.find('.pin-description').show();
 		if ($(window).width() <= 580) {
@@ -81,7 +86,7 @@ Template.map.events = {
 	'click #geocode' : function(){codeAddress();},
 	'keypress #address' : function(e){if (e.keyCode == 13) {codeAddress();}},
 	'click .pin' : function(e){
-		// infowindow.close();
+		infowindow.close();
 		pin = $(e.target).closest('.pin');
 		if ($(e.target).attr("class")=='close'){
 			pin.removeClass('open').find('.close').hide();
@@ -91,6 +96,10 @@ Template.map.events = {
 			}
 		}
 		else{
+			// $('#marker25837500').click(function () {
+			//     google.maps.event.trigger(marker25837500, 'click')
+			// })
+
 			$('.pin-description').hide();
 			$('.close').hide();
 			$('.pin').removeClass('open');

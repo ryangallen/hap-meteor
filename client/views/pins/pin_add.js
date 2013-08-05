@@ -24,7 +24,7 @@ Template.pinAdd.events({
 					Meteor.Router.to('pinPage', id);
 				});
 			} else {
-				alert('Geocode was not successful for the following reason: ' + status);
+				alert('Sorry, can\'t find ' + pin.location + 'on the map.');
 			}
 		});
 	}
